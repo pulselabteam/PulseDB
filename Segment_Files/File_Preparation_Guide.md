@@ -2,7 +2,7 @@
 
 Please prepare the **Segment** files in this folder:
 
-1. Download the following 2 PulseDB segment files from this GoogleDrive link:
+1. Download the following 2 PulseDB segment files from this [GoogleDrive link](https://drive.google.com/drive/folders/1_ILrK_8jMBZwtJ8dMN21dCtSHr2W3WYF?usp=sharing)
    * **PulseDB_MIMIC.zip**
    * **PulseDB_Vital.zip**
 2. Unzip the 2 downloaded files
