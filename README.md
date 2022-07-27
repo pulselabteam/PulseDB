@@ -1,4 +1,4 @@
-# PulseDB Dataset
+# The PulseDB Dataset
 
 The script, **Generate_Subsets.m**, is provided to generate **Subset** files, which are the training and testing subsets of the PulseDB Dataset. **Subset** files are generated from the **Segment** and **Info** files stored in the folder **Segment_Files** and **Info_Files**, whose contents have to be downloaded seperatedly from Google Drive. 
 
