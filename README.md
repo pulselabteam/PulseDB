@@ -8,4 +8,4 @@ Please refer to the **File_Preparation_Guide** in each folder, or download all (
 
 Here are some guides for downloading these data files
 - In our tests, the OneDrive links have shown better stability for downloading the data files, so we recommend using them.
-- We recommend downloading each of the file one at a a time, instead of zipping multiple files in the online drive and download together
+- We recommend downloading each of the file one at a time, instead of zipping multiple files in the online drive and download together
