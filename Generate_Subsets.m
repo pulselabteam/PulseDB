@@ -79,6 +79,6 @@ for i=1:numel(Subjects)
     
 end
 waitbar(1,f,'Saving File')
-save(Save_Name, 'Subset')
+save(Save_Name, 'Subset','-v7.3')
 delete(f)
 end
