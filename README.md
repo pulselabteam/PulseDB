@@ -6,7 +6,7 @@ The generated **Subset** files are stored in the folder **Subset_Files**. Data w
 
 Please refer to the **File_Preparation_Guide** in each folder, or find all MATLAB data files you need all at once in organized folders from this [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/ElnVrq7MWdVGvvZztLCuNe0BDJ1YKh9FNBM0tK2BJVC0ew?e=fQYySg) or [GoogleDrive link](https://drive.google.com/drive/folders/1behw-Dljs8-p2axHQ6KJZ5HTRKQHQgnS?usp=sharing), including the already-generated **Subset** files. 
 
-The generated **Subset** files are also available via [Kaggle](https://doi.org/10.34740/KAGGLE/DS/2447469)
+The generated **Subset** files are also available via [Kaggle](https://doi.org/10.34740/KAGGLE/DS/2447469).
 
 Tips for downloading data files:
 - In our tests, the OneDrive links have shown better stability for downloading the data files, so we recommend using them.
