@@ -1,3 +1,11 @@
+# Licenses
+
+This **PulseDB_MIMIC.zip** and **PulseDB_MIMIC_Parts** files are made available under the Open Database License: [http://opendatacommons.org/licenses/odbl/1.0/](https://opendatacommons.org/licenses/odbl/1.0/). Any rights in individual contents of the database are licensed under the Database Contents License: [http://opendatacommons.org/licenses/dbcl/1.0/](https://opendatacommons.org/licenses/dbcl/1.0/)
+
+This **PulseDB_Vital.zip** and the **PulseDB_Vital_Parts** files are made available under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License: https://creativecommons.org/licenses/by-nc-sa/4.0/ 
+
+
+
 # The PulseDB Dataset
 
 The script, **Generate_Subsets.m**, is provided to generate **Subset** files, which are the training and testing subsets of the PulseDB Dataset. **Subset** files are generated from the **Segment** and **Info** files stored in the folder **Segment_Files** and **Info_Files**, whose contents have to be downloaded separately from online drive services.
