@@ -1,4 +1,9 @@
 clear;clc;
+%% Generating training, calibration, and testing subsets of PulseDB
+% Note: Height, weight and BMI field for data will only be valid for
+% segements from the VitalDB dataset, and wil be NaN for segments from
+% the MIMIC-III matched subset, since these infroamtion are not included in
+% the original MIMIC-III matched subset.
 % Locate segment files
 MIMIC_Path='Segment_Files/PulseDB_MIMIC';
 Vital_Path='Segment_Files/PulseDB_Vital';
@@ -8,18 +13,40 @@ Train_Info='Info_Files/Train_Info';
 CalBased_Test_Info='Info_Files/CalBased_Test_Info';
 CalFree_Test_Info='Info_Files/CalFree_Test_Info';
 AAMI_Test_Info='Info_Files/AAMI_Test_Info';
+AAMI_Cal_Info='Info_Files/AAMI_Cal_Info';
 
 % Generate training set
 Generate_Subset(MIMIC_Path,Vital_Path,Train_Info,'Subset_Files/Train_Subset')
-
 % Generate calibration-based testing set
 Generate_Subset(MIMIC_Path,Vital_Path,CalBased_Test_Info,'Subset_Files/CalBased_Test_Subset')
-
 % Generate calibration-free testing set
 Generate_Subset(MIMIC_Path,Vital_Path,CalFree_Test_Info,'Subset_Files/CalFree_Test_Subset')
-
 % Generate AAMI testing set
 Generate_Subset(MIMIC_Path,Vital_Path,AAMI_Test_Info,'Subset_Files/AAMI_Test_Subset')
+% Generate AAMI calibration set
+Generate_Subset(MIMIC_Path,Vital_Path,AAMI_Cal_Info,'Subset_Files/AAMI_Cal_Subset')
+%% Generating supplementary trainining, calibration, and testing subsets from only VitalDB subjects
+% Locate info files
+VitalDB_Train_Info='Supplementary_Info_Files/VitalDB_Train_Info';
+VitalDB_CalBased_Test_Info='Supplementary_Info_Files/VitalDB_CalBased_Test_Info';
+VitalDB_CalFree_Test_Info='Supplementary_Info_Files/VitalDB_CalFree_Test_Info';
+VitalDB_AAMI_Test_Info='Supplementary_Info_Files/VitalDB_AAMI_Test_Info';
+VitalDB_AAMI_Cal_Info='Supplementary_Info_Files/VitalDB_AAMI_Cal_Info';
+
+% Generate training set
+Generate_Subset(MIMIC_Path,Vital_Path,VitalDB_Train_Info,'Supplementary_Subset_Files/VitalDB_Train_Subset')
+% Generate calibration-based testing set
+Generate_Subset(MIMIC_Path,Vital_Path,VitalDB_CalBased_Test_Info,'Supplementary_Subset_Files/VitalDB_CalBased_Test_Subset')
+% Generate calibration-free testing set
+Generate_Subset(MIMIC_Path,Vital_Path,VitalDB_CalFree_Test_Info,'Supplementary_Subset_Files/VitalDB_CalFree_Test_Subset')
+% Generate AAMI testing set
+Generate_Subset(MIMIC_Path,Vital_Path,VitalDB_AAMI_Test_Info,'Supplementary_Subset_Files/VitalDB_AAMI_Test_Subset')
+% Generate AAMI calibration set
+Generate_Subset(MIMIC_Path,Vital_Path,VitalDB_AAMI_Cal_Info,'Supplementary_Subset_Files/VitalDB_AAMI_Cal_Subset')
+
+
+
+
 
 
 %% Function
@@ -38,18 +65,22 @@ Subset.SBP=NaN(Len,1);
 Subset.DBP=NaN(Len,1);
 Subset.Age=NaN(Len,1);
 Subset.Gender=cell(Len,1);
-% Subset contains mixed segments from both MIMIC-III and VitalDB, so
-% height, weight and BMI were not included since these are not available
-% from MIMIC-III.
+Subset.Height=NaN(Len,1);
+Subset.Weight=NaN(Len,1);
+Subset.BMI=NaN(Len,1);
+
+
 
 % Locate unique subjects in the Info file, load subject-by-subject
 Subjects=unique({Info.Subj_Name});
 
 
 pos=1;
-f=waitbar(0,'Gathering Data');
+f=waitbar(0,['Gathering Data For: ', Save_Name]);
+f.Children.Title.Interpreter = 'none';
 for i=1:numel(Subjects)
     waitbar(i/numel(Subjects),f)
+    
     Subj_Name=Subjects{i};
     Subj_ID=Subj_Name(1:7);
     Source=str2double(Subj_Name(end));
@@ -73,7 +104,11 @@ for i=1:numel(Subjects)
         Subset.DBP(pos)=Segment.SegDBP;
         Subset.Age(pos)=Segment.Age;
         Subset.Gender{pos}=Segment.Gender;
-        
+        if Source==1 %Record information for VitalDB subjects
+            Subset.Height(pos)=Segment.Height;
+            Subset.Weight(pos)=Segment.Weight;
+            Subset.BMI(pos)=Segment.BMI;
+        end
         pos=pos+1;
     end
     

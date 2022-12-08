@@ -1,12 +1,16 @@
 # Licenses
 
-This **PulseDB_MIMIC.zip**, **PulseDB_MIMIC.zip.001**, **PulseDB_MIMIC.zip.002**, **PulseDB_MIMIC.zip.003** , **PulseDB_MIMIC.zip.004** , **PulseDB_MIMIC.zip.005** , **PulseDB_MIMIC.zip.006** , **PulseDB_MIMIC.zip.007** , **PulseDB_MIMIC.zip.008** , **PulseDB_MIMIC.zip.009** , **PulseDB_MIMIC.zip.010** , **PulseDB_MIMIC.zip.011** , **PulseDB_MIMIC.zip.012** , **PulseDB_MIMIC.zip.013** , **PulseDB_MIMIC.zip.014** files are made available under the Open Database License (ODbL): [http://opendatacommons.org/licenses/odbl/1.0/](https://opendatacommons.org/licenses/odbl/1.0/). Any rights in individual contents of the database are licensed under the Database Contents License: [http://opendatacommons.org/licenses/dbcl/1.0/](https://opendatacommons.org/licenses/dbcl/1.0/)
+**PulseDB_MIMIC.zip**, **PulseDB_MIMIC.zip.001**, **PulseDB_MIMIC.zip.002**, **PulseDB_MIMIC.zip.003** , **PulseDB_MIMIC.zip.004** , **PulseDB_MIMIC.zip.005** , **PulseDB_MIMIC.zip.006** , **PulseDB_MIMIC.zip.007** , **PulseDB_MIMIC.zip.008** , **PulseDB_MIMIC.zip.009** , **PulseDB_MIMIC.zip.010** , **PulseDB_MIMIC.zip.011** , **PulseDB_MIMIC.zip.012** , **PulseDB_MIMIC.zip.013** , **PulseDB_MIMIC.zip.014** are data derived from the MIMIC-III matched subset: https://physionet.org/content/mimic3wdb-matched/1.0/
+
+These files are made available under the Open Database License (ODbL): [http://opendatacommons.org/licenses/odbl/1.0/](https://opendatacommons.org/licenses/odbl/1.0/). Any rights in individual contents of the database are licensed under the Database Contents License: [http://opendatacommons.org/licenses/dbcl/1.0/](https://opendatacommons.org/licenses/dbcl/1.0/)
 
 Refer to  [LICENSE_PulseDB_MIMIC](LICENSE_PulseDB_MIMIC) for details.
 
 
 
-This **PulseDB_Vital.zip**, **PulseDB_Vital.zip.001**, **PulseDB_Vital.zip.002**, **PulseDB_Vital.zip.003** , **PulseDB_Vital.zip.004** , **PulseDB_Vital.zip.005** , **PulseDB_Vital.zip.006** , **PulseDB_Vital.zip.007** , **PulseDB_Vital.zip.008** files are made available under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License: https://creativecommons.org/licenses/by-nc-sa/4.0/ 
+**PulseDB_Vital.zip**, **PulseDB_Vital.zip.001**, **PulseDB_Vital.zip.002**, **PulseDB_Vital.zip.003** , **PulseDB_Vital.zip.004** , **PulseDB_Vital.zip.005** , **PulseDB_Vital.zip.006** , **PulseDB_Vital.zip.007** , **PulseDB_Vital.zip.008** are data derived from the VitalDB dataset: https://vitaldb.net/dataset/
+
+These files are made available under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License: https://creativecommons.org/licenses/by-nc-sa/4.0/ 
 
 Refer to  [LICENSE_PulseDB_Vital](LICENSE_PulseDB_Vital) for details.
 
