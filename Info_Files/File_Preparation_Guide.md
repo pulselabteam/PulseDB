@@ -1,5 +1,7 @@
 # Info_Files
 
+These **Info** files are for generating the **Training, Calibration, and Testing Subsets** of PulseDB.
+
 Please prepare the **Info** files in this folder:
 
 1. Download the following 5 **Info** files from this [OneDrive Link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/Ern2XAhBoLhLsPF_KrAVbQEBy_hVSIKg3iZawRscJEO1LA?e=qeasPY) or [GoogleDrive link](https://drive.google.com/drive/folders/1wcw4PEGttM3EY0-syayp2Q3rPHIQ1hns?usp=sharing)
