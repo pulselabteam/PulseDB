@@ -33,7 +33,7 @@ Tips for downloading data files:
 
 - **Update_2023_03_02** 
 
-  - We uploaded all **5,361** uncompressed segment files in **PulseDB_MIMIC.zip** and **PulseDB_Vital.zip** to [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EhJfGb93KONPg0oXN7ISKLkBXqKvOJ-8VdEvux3Bny22TA?e=pG3ynR), so you can also search and download each file individually.
+  - We uploaded all **5,361** uncompressed segment files in **PulseDB_MIMIC.zip** and **PulseDB_Vital.zip** to [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EhJfGb93KONPg0oXN7ISKLkBXqKvOJ-8VdEvux3Bny22TA?e=pG3ynR) and [GoogleDrive](https://drive.google.com/drive/folders/1uC5eaUbuOUqZooeJE0vLwLYZ9kEXjhCO?usp=sharing), so you can also search and download each file individually.
 
 # Licenses
 
