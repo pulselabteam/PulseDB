@@ -7,7 +7,7 @@ Please refer to the paper for detailed information about this dataset:
 **Frontiers in Digital Health, 08 February 2023**
 **Volume 4 - 2022 | [https://doi.org/10.3389/fdgth.2022.1090854](https://doi.org/10.3389/fdgth.2022.1090854)**
 
-For additional informaiton about the tags, labels and fields recorded in PulseDB, refer to the [Supplementary Material](https://github.com/pulselabteam/PulseDB/blob/main/Supplementary%20Materials.pdf) of the paper. 
+For additional information about the fields in PulseDB files, refer to the [Supplementary Material](https://github.com/pulselabteam/PulseDB/blob/main/Supplementary%20Materials.pdf) of the paper. 
 ___
 
 The script, **Generate_Subsets.m**, is provided to generate **Subset** files, which are the training, calibration, and testing subsets of the PulseDB Dataset. 
