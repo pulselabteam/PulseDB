@@ -30,6 +30,38 @@ Tips for downloading data files:
 - If your unarchive software does not support subsection-compressed files or encounter other problems, we suggest using the open-source software [7Zip](https://www.7-zip.org/) for Windows, and the free software [The Unarchiver](https://theunarchiver.com/) for Mac.
 - If there is an error when unarchiving the subsection-compressed files, then some of your sections may not have been downloaded completely. Check for downloaded sections that are smaller than 10GB, and re-download them.
 
+# Loading Subset Files in Python
+Here is an example for loading the **Subset** files generated using the script **Generate_Subsets.m** in Python:
+```python
+#You need to install the package mat73 because PulseDB uses MAT file version 7.3 to store large volume data
+from mat73 import loadmat 
+import numpy as np
+
+def Build_Dataset(Path,FieldName='Subset'):
+        Data=loadmat(Path)
+        # Access 10-s segments of ECG, PPG and ABP signals
+        Signals=Data[FieldName]['Signals']
+        # Access SBP labels of each 10-s segment
+        SBPLabels=Data[FieldName]['SBP']
+        # Access Age of the subject corresponding to each of the 10-s segment
+        Age=Data[FieldName]['Age']
+        # Access Gender of the subject corresponding to each of the 10-s segment
+        Gender=np.array(Data[FieldName]['Gender']).squeeze()
+        # Convert Gender to numerical 0-1 labels
+        Gender=(Gender=='M').astype(float)
+        # Access Height and Weight of the subject corresponding to each of the 10-s segment
+        # If the subject is from the MIMIC-III matched subset, height and weight will be NaN 
+        # since they were only recorded in VitalDB
+        Height=Data[FieldName]['Height']
+        Weight=Data[FieldName]['Weight']
+        # Concatenate the demographic information as one matrix
+        Demographics=np.stack((Age,Gender,Height,Weight),axis=1)
+        return Signals,SBPLabels,Demographics
+        
+Build_Dataset('PulseDB\\Subset_Files\\Train_Subset.mat')
+```
+
+
 # Updates
 
 - **Update_2023_03_02** 
