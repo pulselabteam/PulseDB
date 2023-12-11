@@ -69,6 +69,37 @@ Build_Dataset('PulseDB\\Subset_Files\\Train_Subset.mat')
   - We uploaded all **5,361** uncompressed segment files in **PulseDB_MIMIC.zip** and **PulseDB_Vital.zip** to [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EhJfGb93KONPg0oXN7ISKLkBXqKvOJ-8VdEvux3Bny22TA?e=pG3ynR) and [GoogleDrive](https://drive.google.com/drive/folders/1uC5eaUbuOUqZooeJE0vLwLYZ9kEXjhCO?usp=sharing), so you can also search and download each file individually.
   - If you encountered difficulties when downloading files with web browser, use the above GoogleDrive links to create a shortcut or make a copy of PulseDB to you own GoogleDrive repository, then, sync your local hard drive with your GoogleDrive repository using the desktop GoogleDrive APP.
 
+
+
+# Training the Models
+
+To reproduce the gap between the calibration-free and calibration-based testing sets when training the model, use the code provided in **Model_Training**.
+
+The code uses **TensorBoard** to record the results shown in the paper. In **Model_Training/TensorBoard**, results from previous runs described in the paper are included:
+
+- **2022_0725_170136(SBP)** when training a SBP estimation model
+- **2022_0726_221554(DBP)** when training a DBP estimation model
+
+You can check these results with **TensorBoard**.
+
+To run your own training, the following lines in **Model_Training/Model_Training.py** need to be modified per your setting:
+
+```python
+# Replace 'YOUR_PATH' with the folder of your generated Training, CalBased and CalFree testing subsets.
+data_folder = 'YOUR_PATH'
+Train_File = data_folder+'Train_Subset.mat'
+Test_CalBased_File = data_folder+'CalBased_Test_Subset.mat'
+Test_CalFree_File = data_folder+'CalFree_Test_Subset.mat'
+
+
+# Training model for estimating SBP. Replace 'SBP' with 'DBP' to train model for DBP.
+Train_Data = Build_Dataset(Train_File, 'SBP')
+Test_CalBased_Data = Build_Dataset(Test_CalBased_File, 'SBP')
+Test_CalFree_Data = Build_Dataset(Test_CalFree_File, 'SBP')
+```
+
+Once you are finished with these settings, run **Model_Training/Model_Training.py** to start model training. The results will be recorded in **Model_Training/TensorBoard**, just as the provided results. 
+
 # Licenses
 
 PulseDB_MIMIC.zip, PulseDB_MIMIC.zip.001, PulseDB_MIMIC.zip.002, PulseDB_MIMIC.zip.003, PulseDB_MIMIC.zip.004 , PulseDB_MIMIC.zip.005, PulseDB_MIMIC.zip.006, PulseDB_MIMIC.zip.007, PulseDB_MIMIC.zip.008, PulseDB_MIMIC.zip.009, PulseDB_MIMIC.zip.010, PulseDB_MIMIC.zip.011, PulseDB_MIMIC.zip.012, PulseDB_MIMIC.zip.013, and PulseDB_MIMIC.zip.014, are data derived from the **MIMIC-III Waveform Database Matched Subset**: https://physionet.org/content/mimic3wdb-matched/1.0/
