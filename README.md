@@ -73,16 +73,16 @@ Build_Dataset('PulseDB\\Subset_Files\\Train_Subset.mat')
 
 # Training the Models
 
-To reproduce the gap between the calibration-free and calibration-based testing sets when training the model, use the code provided in **Model_Training**.
+To reproduce the gap between the calibration-free and calibration-based testing sets when training the model, use the code provided in **PulseDB/Model_Training**.
 
-The code uses **TensorBoard** to record the results shown in the paper. In **Model_Training/TensorBoard**, results from previous runs described in the paper are included:
+The code uses **TensorBoard** to record the results shown in the paper. In **PulseDB/Model_Training/TensorBoard**, results from previous runs described in the paper are included:
 
 - **2022_0725_170136(SBP)** when training a SBP estimation model
 - **2022_0726_221554(DBP)** when training a DBP estimation model
 
 You can check these results with **TensorBoard**.
 
-To run your own training, the following lines in **Model_Training/Model_Training.py** need to be modified per your setting:
+To run your own training, the following lines in **PulseDB/Model_Training/Model_Training.py** need to be modified per your setting:
 
 ```python
 # Replace 'YOUR_PATH' with the folder of your generated Training, CalBased and CalFree testing subsets.
@@ -98,7 +98,7 @@ Test_CalBased_Data = Build_Dataset(Test_CalBased_File, 'SBP')
 Test_CalFree_Data = Build_Dataset(Test_CalFree_File, 'SBP')
 ```
 
-Once you are finished with these settings, run **Model_Training/Model_Training.py** to start model training. The results will be recorded in **Model_Training/TensorBoard**, just as the provided results. 
+Once you are finished with these settings, run **Model_Training.py** to start model training. The results will be recorded in **PulseDB/Model_Training/TensorBoard**, just as the provided results. 
 
 # Licenses
 
