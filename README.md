@@ -1,3 +1,20 @@
+# PulseDB v2_0
+
+- We have updated PulseDB to `v2_0` in the `main` branch. To check the historical data and repository published along the paper, see branch `v1_0`.
+- In `v2_0`, we re-generated the `5,361` MATLAB data files in PulseDB, such that they have all fields present in `v1_0` (corresponding to the paper), plus the following new fields:
+  - `T`: The absolute timestamp of each sample in the 10-s segment
+    - Notes: PulseDB retrieves 1 consecutive clip from each MIMIC/VitalDB record, divides the clip into 10-s segments, and removes those 10-s segments of bad quality. `T` locates the temporal position of each sample in the 10-s segment within this consecutive clip, with the `0` timestamp corresponding to the first sample in the clip.
+  - `ECG_Record`: The raw ECG signal in the MIMIC/VitalDB dataset with non-normalized absolute amplitudes
+  - `PPG_Record`: The raw PPG signal in the MIMIC/VitalDB dataset with non-normalized absolute amplitudes
+  - `ECG_Record_F`: The filtered ECG signal with non-normalized absolute amplitudes
+  - `PPG_Record_F`:  The filtered PPG signal with non-normalized absolute amplitudes
+- For fields that are present in both `v2_0` and `v1_0`, their equivalence were checked:
+  - Data in the following fields in `v2_0` are equal to `v1_0` within a tolerance of 1e-6:
+    - `ECG_F`, `PPG_F`, `ABP_F`, `PPG_ABP_Corr`
+  - Data in all other fields in `v2_0` are identical to data in `v1_0`.
+- All other scripts and files such as the **Info** files or the script **Generate_Subsets.m** are identical to `v1_0`. Therefore, running the script **Generate_Subsets.m** still retrieves the normalized signals from the previous fields, `ECG_F` and `PPG_F` (corresponding to the paper). If you want to retrieve the new non-normalized signals instead, modify the script to read from the newly added fields.
+- Data in `v2_0` is stored in [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) and [GoogleDrive](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing). To view previous links that point to the previous PulseDB data, see branch `v1_0`.
+
 # The PulseDB Dataset
 
 Please refer to the paper for detailed information about this dataset:
@@ -16,19 +33,21 @@ The script, **Generate_Subsets.m**, is provided to generate **Subset** files, wh
 
 The generated **Subset** files are stored in the folder **Subset_Files** and **Supplementary_Subset_Files**. Data were organized as large matrices for the compactness of file size that is more suitable to fit into memory for training and testing machine learning models.
 
-Please refer to the **File_Preparation_Guide** in each folder, or find all **Segment** and **Info** files you need all at once in organized folders from this [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/ElnVrq7MWdVGvvZztLCuNe0BDJ1YKh9FNBM0tK2BJVC0ew?e=fQYySg) or [GoogleDrive link](https://drive.google.com/drive/folders/1behw-Dljs8-p2axHQ6KJZ5HTRKQHQgnS?usp=sharing)
+Please refer to the **File_Preparation_Guide** in each folder, or find all **Segment** and **Info** files you need all at once in organized folders from this [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) or [GoogleDrive link](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing)
 
 The generated **Supplementary Subset** files with data derived from the **VitalDB** dataset are also available via [Kaggle](https://doi.org/10.34740/KAGGLE/DS/2447469).
 
-Tips for downloading data files:
+# Download PulseDB v2_0
 
-- In our tests, the OneDrive links have shown better stability when downloading large files.
-- Avoid selecting multiple files in the online drive and download together, or creating multiple downloads at the same time. Downloading each of the file one at a time is the fastest and easiest way to have all files properly downloaded.
-- If you can successfully download **PulseDB/Segment_Files/PulseDB_MIMIC.zip** and **PulseDB/Segment_Files/PulseDB_Vital.zip**, then there is no need to download any file in the folder **PulseDB/Segment_Files/Segment_Files_Subsection_Compressed**
-- Both OneDrive and GoogleDrive do not support resume downloading from break-point. Therefore, if the download pause or fail, you need to start all over again. This may create difficulties when downloading the largest data files, **PulseDB_MIMIC.zip** (136GB) and **PulseDB_Vital.zip** (77.4GB), in wirelessly connected circumstances that are prone to be interrupted. To resolve this problem, we have created sub-section compressed version of these two files, with each section being 10GB (except for the last section). If you have encountered problems or failures when downloading the .zip files, try the sub-section compressed version: **PulseDB_MIMIC_Parts** (14 Parts) ([OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/Evexk1L7supLvnNOejVYJa0BJxOJmJNeKKgaL-h5_vrndw?e=bnkwWT)  [GoogleDrive](https://drive.google.com/drive/folders/1PEACOKTyrfBT9NUOypwwyITGgub7uWT0?usp=sharing)) and **PulseDB_Vital_Parts** (8 Parts) ([OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EuHxwv0ogdhGhKiABDvfEIcB_lolC0ufIZ2wWFY9MvvSEg?e=HCkRMH) [GoogleDrive](https://drive.google.com/drive/folders/1TUjAIORpytNc5LBShUOnTcGkHUlbSzeX?usp=sharing)) in the folder **PulseDB/Segment_Files/Segment_Files_Subsection_Compressed**, and download the data files section-by-section. After downloading all sections, unzip any one of the sections to get the desired data folder. 
-- No matter which version (the .zip or the sub-section compressed version) you have donwloaded, remember to unzip the files and put the data folders, **PulseDB_MIMIC** and **PulseDB_Vital**, into the **Segment_Files** folder, before you start generating the **Subset** files using the provided script.
-- If your unarchive software does not support subsection-compressed files or encounter other problems, we suggest using the open-source software [7Zip](https://www.7-zip.org/) for Windows, and the free software [The Unarchiver](https://theunarchiver.com/) for Mac.
-- If there is an error when unarchiving the subsection-compressed files, then some of your sections may not have been downloaded completely. Check for downloaded sections that are smaller than 10GB, and re-download them.
+- `v2_0` is stored as uncompressed, individual MATLAB data files.
+- At present, we recommend using the Google Drive app to download the shared files
+  - Register a free Google Drive account
+  - Open the [GoogleDrive link](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing) in your web browser
+  - In Google Drive, go to "Shared with me"
+  - Right click on the PulseDB folder, select "Organize > Add shortcut"
+  - Pick a location in you Google Drive to create a link to the shared folder
+  - Install the Google Drive app on your computer and sync with your Google Drive account. PulseDB will be synced to your computer just like all other files in your Google Drive.
+
 
 # Loading Subset Files in Python
 Here is an example for loading the **Subset** files generated using the script **Generate_Subsets.m** in Python:
@@ -61,16 +80,6 @@ def Build_Dataset(Path,FieldName='Subset'):
 Build_Dataset('PulseDB\\Subset_Files\\Train_Subset.mat')
 ```
 
-
-# Updates
-
-- **Update_2023_03_02** 
-
-  - We uploaded all **5,361** uncompressed segment files in **PulseDB_MIMIC.zip** and **PulseDB_Vital.zip** to [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EhJfGb93KONPg0oXN7ISKLkBXqKvOJ-8VdEvux3Bny22TA?e=pG3ynR) and [GoogleDrive](https://drive.google.com/drive/folders/1uC5eaUbuOUqZooeJE0vLwLYZ9kEXjhCO?usp=sharing), so you can also search and download each file individually.
-  - If you encountered difficulties when downloading files with web browser, use the above GoogleDrive links to create a shortcut or make a copy of PulseDB to you own GoogleDrive repository, then, sync your local hard drive with your GoogleDrive repository using the desktop GoogleDrive APP.
-
-
-
 # Training the Models
 
 To reproduce the gap between the calibration-free and calibration-based testing sets when training the model, use the code provided in **PulseDB/Model_Training**.
@@ -102,21 +111,21 @@ Once you are finished with these settings, run **Model_Training.py** to start mo
 
 # Licenses
 
-PulseDB_MIMIC.zip, PulseDB_MIMIC.zip.001, PulseDB_MIMIC.zip.002, PulseDB_MIMIC.zip.003, PulseDB_MIMIC.zip.004 , PulseDB_MIMIC.zip.005, PulseDB_MIMIC.zip.006, PulseDB_MIMIC.zip.007, PulseDB_MIMIC.zip.008, PulseDB_MIMIC.zip.009, PulseDB_MIMIC.zip.010, PulseDB_MIMIC.zip.011, PulseDB_MIMIC.zip.012, PulseDB_MIMIC.zip.013, and PulseDB_MIMIC.zip.014, are data derived from the **MIMIC-III Waveform Database Matched Subset**: https://physionet.org/content/mimic3wdb-matched/1.0/
+All files under the folder **PulseDB_MIMIC**, are data derived from the **MIMIC-III Waveform Database Matched Subset**: https://physionet.org/content/mimic3wdb-matched/1.0/
 
 These files are made available under the Open Database License (ODbL): [http://opendatacommons.org/licenses/odbl/1.0/](https://opendatacommons.org/licenses/odbl/1.0/). Any rights in individual contents of the database are licensed under the Database Contents License: [http://opendatacommons.org/licenses/dbcl/1.0/](https://opendatacommons.org/licenses/dbcl/1.0/)
 
 Refer to  [LICENSE_PulseDB_MIMIC](LICENSE_PulseDB_MIMIC) for details.
 
+____
 
-
-PulseDB_Vital.zip, PulseDB_Vital.zip.001, PulseDB_Vital.zip.002, PulseDB_Vital.zip.003, PulseDB_Vital.zip.004, PulseDB_Vital.zip.005, PulseDB_Vital.zip.006, PulseDB_Vital.zip.007, and PulseDB_Vital.zip.008, are data derived from the **VitalDB** dataset: https://vitaldb.net/dataset/
+All files under the folder **PulseDB_Vital**, are data derived from the **VitalDB** dataset: https://vitaldb.net/dataset/
 
 These files are made available under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License: https://creativecommons.org/licenses/by-nc-sa/4.0/ 
 
 Refer to  [LICENSE_PulseDB_Vital](LICENSE_PulseDB_Vital) for details.
 
-
+____
 
 PulseDB_Info.mat, Train_Info.mat, CalBased_Test_Info.mat, CalFree_Test_Info.mat, AAMI_Test_Info.mat, AAMI_Cal_Info.mat, VitalDB_Train_Info.mat, VitalDB_CalBased_Test_Info.mat, VitalDB_CalFree_Test_Info.mat, VitalDB_AAMI_Test_Info.mat, VitalDB_AAMI_Cal_Info.mat, and Generate_Subsets.m, are information regarding to generation of the **Training, Calibration, and Testing Subsets of PulseDB**
 
