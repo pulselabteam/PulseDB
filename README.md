@@ -1,6 +1,6 @@
 # PulseDB v2_0
 
-- We have updated PulseDB to `v2_0` in the `main` branch. To check the historical data and repository published along the paper, see branch `v1_0`.
+- We have updated PulseDB to `v2_0` in the `main` branch. To check the historical data and repository published along the paper, see branch [v1_0](https://github.com/pulselabteam/PulseDB/tree/v1_0).
 - In `v2_0`, we re-generated the `5,361` MATLAB data files in PulseDB, such that they have all fields present in `v1_0` (corresponding to the paper), plus the following new fields:
   - `T`: The absolute timestamp of each sample in the 10-s segment
     - Notes: PulseDB retrieves 1 consecutive clip from each MIMIC/VitalDB record, divides the clip into 10-s segments, and removes those 10-s segments of bad quality. `T` locates the temporal position of each sample in the 10-s segment within this consecutive clip, with the `0` timestamp corresponding to the first sample in the clip.
@@ -13,7 +13,7 @@
     - `ECG_F`, `PPG_F`, `ABP_F`, `PPG_ABP_Corr`
   - Data in all other fields in `v2_0` are identical to data in `v1_0`.
 - All other scripts and files such as the **Info** files or the script **Generate_Subsets.m** are identical to `v1_0`. Therefore, running the script **Generate_Subsets.m** still retrieves the normalized signals from the previous fields, `ECG_F` and `PPG_F` (corresponding to the paper). If you want to retrieve the new non-normalized signals instead, modify the script to read from the newly added fields.
-- Data in `v2_0` is stored in [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) and [GoogleDrive](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing). To view previous links that point to the previous PulseDB data, see branch `v1_0`.
+- Data in `v2_0` is stored in [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) and [GoogleDrive](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing). To view previous links that point to the previous PulseDB data, see branch [v1_0](https://github.com/pulselabteam/PulseDB/tree/v1_0).
 
 # The PulseDB Dataset
 
