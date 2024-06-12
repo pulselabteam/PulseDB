@@ -13,7 +13,6 @@
     - `ECG_F`, `PPG_F`, `ABP_F`, `PPG_ABP_Corr`
   - Data in all other fields in `v2_0` are identical to data in `v1_0`.
 - All other scripts and files such as the **Info** files or the script **Generate_Subsets.m** are identical to `v1_0`. Therefore, running the script **Generate_Subsets.m** still retrieves the normalized signals from the previous fields, `ECG_F` and `PPG_F` (corresponding to the paper). If you want to retrieve the new non-normalized signals instead, modify the script to read from the newly added fields.
-- Data in `v2_0` is stored in [OneDrive](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) and [GoogleDrive](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing). To view previous links that point to the previous PulseDB data, see branch [v1_0](https://github.com/pulselabteam/PulseDB/tree/v1_0).
 
 # The PulseDB Dataset
 
@@ -33,20 +32,96 @@ The script, **Generate_Subsets.m**, is provided to generate **Subset** files, wh
 
 The generated **Subset** files are stored in the folder **Subset_Files** and **Supplementary_Subset_Files**. Data were organized as large matrices for the compactness of file size that is more suitable to fit into memory for training and testing machine learning models.
 
-Please refer to the **File_Preparation_Guide** in each folder, or find all **Segment** and **Info** files you need all at once in organized folders from this [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) or [GoogleDrive link](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing)
+Please refer to the **File_Preparation_Guide** in each folder, or find all **Segment** and **Info** files you need all at once in organized folders from [Box link](https://rutgers.box.com/s/sw3c51fr5oybz6mhqsphh5zg8ibxw800), [GoogleDrive link](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing) or [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl)
 
 The generated **Supplementary Subset** files with data derived from the **VitalDB** dataset are also available via [Kaggle](https://doi.org/10.34740/KAGGLE/DS/2447469).
 
 # Download PulseDB v2_0
 
-- `v2_0` is stored as uncompressed, individual MATLAB data files.
-- At present, we recommend using the Google Drive app to download the shared files
+## From Box
+
+- The [Box link](https://rutgers.box.com/s/sw3c51fr5oybz6mhqsphh5zg8ibxw800) stores files under the folder `Segment_Files` as sub-section compressed parts, other files as uncompressed, individual MATLAB data files
+- Use the following curl script to download all parts under the  `Segment_Files` folder
+  - If some file are not downloaded completely, try running the entire script again. The `curl -C` option will skip completed files and try resuming breakpoints of incomplete files and continue the download
+
+```bash
+curl -L -o "PulseDB_MIMIC.zip.001" -C - "https://rutgers.box.com/shared/static/7l8n3tn9tr0602tdss1x7e3uliahlibp.001"
+curl -L -o "PulseDB_MIMIC.zip.002" -C - "https://rutgers.box.com/shared/static/zco48rvz5dog72970679foen6hct15c8.002"
+curl -L -o "PulseDB_MIMIC.zip.003" -C - "https://rutgers.box.com/shared/static/x22qpmelx6sz3wgkm5qyc0eis429361f.003"
+curl -L -o "PulseDB_MIMIC.zip.004" -C - "https://rutgers.box.com/shared/static/xj25sqnluiz6s4z8tzzm5phk00ohp6e8.004"
+curl -L -o "PulseDB_MIMIC.zip.005" -C - "https://rutgers.box.com/shared/static/dxus2lsoop02chaspnwipwrf0g4wmenr.005"
+curl -L -o "PulseDB_MIMIC.zip.006" -C - "https://rutgers.box.com/shared/static/rts6sj441laenm2sy1qcemg7ke4om3j6.006"
+curl -L -o "PulseDB_MIMIC.zip.007" -C - "https://rutgers.box.com/shared/static/vor4hjllld7a0c3nzef8uptbb4ut3koo.007"
+curl -L -o "PulseDB_MIMIC.zip.008" -C - "https://rutgers.box.com/shared/static/a2qg2p4ebyrooji3z88djlokji65tlf3.008"
+curl -L -o "PulseDB_MIMIC.zip.009" -C - "https://rutgers.box.com/shared/static/uh6kbiuqgnib5wakiv6o35gkpusyamc7.009"
+curl -L -o "PulseDB_MIMIC.zip.010" -C - "https://rutgers.box.com/shared/static/h6eyhkkx48pf3ce3th1clwj43hn98j5c.010"
+curl -L -o "PulseDB_MIMIC.zip.011" -C - "https://rutgers.box.com/shared/static/e93dp94hxpkas45yc59n289s2wvkafgi.011"
+curl -L -o "PulseDB_MIMIC.zip.012" -C - "https://rutgers.box.com/shared/static/iuvyuw7dmlxvbjvt53dj49wqn3gelqni.012"
+curl -L -o "PulseDB_MIMIC.zip.013" -C - "https://rutgers.box.com/shared/static/qxx6tjz8c3778601ib3icu6o1rranmc7.013"
+curl -L -o "PulseDB_MIMIC.zip.014" -C - "https://rutgers.box.com/shared/static/ip2ninwqj8437l9fyffjprnk90ptnx9k.014"
+curl -L -o "PulseDB_MIMIC.zip.015" -C - "https://rutgers.box.com/shared/static/yrtbo0lg8mjhaw624iw9bbhk1obbocwd.015"
+curl -L -o "PulseDB_MIMIC.zip.016" -C - "https://rutgers.box.com/shared/static/wmzndowgfa5xi3tvtqahxkld3ngdyjds.016"
+curl -L -o "PulseDB_Vital.zip.001" -C - "https://rutgers.box.com/shared/static/vtxoksmn7emeaxypb2prywgwscuefoqa.001"
+curl -L -o "PulseDB_Vital.zip.002" -C - "https://rutgers.box.com/shared/static/euzkek7c3xoy62jisheuxqar7z5y8xig.002"
+curl -L -o "PulseDB_Vital.zip.003" -C - "https://rutgers.box.com/shared/static/49lngo0benxfjw193jnqz9tctlyb3qam.003"
+curl -L -o "PulseDB_Vital.zip.004" -C - "https://rutgers.box.com/shared/static/jf4fwgkmhry20mf5tcg9t0wxvky64um0.004"
+curl -L -o "PulseDB_Vital.zip.005" -C - "https://rutgers.box.com/shared/static/2lgxysbskfuapsaan4jypvmm8316fdkc.005"
+curl -L -o "PulseDB_Vital.zip.006" -C - "https://rutgers.box.com/shared/static/x27ktb4qsx43razwo4tjmxq9v1ro0x3y.006"
+curl -L -o "PulseDB_Vital.zip.007" -C - "https://rutgers.box.com/shared/static/q0t36fikgf3pimhvnerwwnovfr0umtp8.007"
+curl -L -o "PulseDB_Vital.zip.008" -C - "https://rutgers.box.com/shared/static/ihckx2g0f981g5yz2x8v5rgwndl6yebw.008"
+curl -L -o "PulseDB_Vital.zip.009" -C - "https://rutgers.box.com/shared/static/y8j14h8tvi5b3du8nap9dnura1omfrk6.009"
+curl -L -o "PulseDB_Vital.zip.010" -C - "https://rutgers.box.com/shared/static/fu0m9tx33jkxywq32shh0g8dg3not15u.010"
+```
+
+- Use the following sha1 file checksum to check the integrity of downloaded parts
+
+```yaml
+PulseDB_MIMIC.zip.001: f3adc384962136eb93d5e12c73d1e2c742387df3
+PulseDB_MIMIC.zip.002: b8db02f3e490c94e8b8b1e5c50bd127c0c340a65
+PulseDB_MIMIC.zip.003: b32a27d7be4c8919b72a85b0bdafd716b0243f14
+PulseDB_MIMIC.zip.004: 8e97e3811c42c6d5311d2a5151652be2b5b087d7
+PulseDB_MIMIC.zip.005: 947ac26f686f3068cb726b3d158fb3469c203f68
+PulseDB_MIMIC.zip.006: 8b6ab2773a3c7135d8cd71c9c33d7a480a1531e5
+PulseDB_MIMIC.zip.007: 1648b9c50cf4b4949582955fa517c0a036982e03
+PulseDB_MIMIC.zip.008: 4c9534c904d71cefafc6e8892d0eaeb6f6990113
+PulseDB_MIMIC.zip.009: b7ad32b67abebec81861253ee1e1efac66a9527f
+PulseDB_MIMIC.zip.010: 29fcc37cd04a9d099cb3a7566b07a3175b36e87f
+PulseDB_MIMIC.zip.011: 70e585b97f2dc72130ea1c34ff0ba936a86e8e2c
+PulseDB_MIMIC.zip.012: 5e4f38cc64cdb7938b144664f4863086bdf547f8
+PulseDB_MIMIC.zip.013: 6acc91136ac53e232b4c83a6b3363b3077af2407
+PulseDB_MIMIC.zip.014: 67b20543d8240ba6db7cf696638edf21c76ab26e
+PulseDB_MIMIC.zip.015: 7e3edd06e61365b481233c60890309b43d57be29
+PulseDB_MIMIC.zip.016: 837559cc18349e610d7950394e11be2d86d559c3
+PulseDB_Vital.zip.001: 3e25f5f89e77b5619f911376f714facd1d14b95e
+PulseDB_Vital.zip.002: 1ba93c9c4f1189f940be89db513b306ddbe93ffa
+PulseDB_Vital.zip.003: 612ab2056288183bb2bba9724d6a66c18b15e71c
+PulseDB_Vital.zip.004: f10ee6fe9f36b292ed5b313e6ea57357aa596c76
+PulseDB_Vital.zip.005: 9a7c332ae6954a0e613b38b3ee522ab109e84736
+PulseDB_Vital.zip.006: 8d7104a83e797d5c7026b0b1492d0f91fda6b426
+PulseDB_Vital.zip.007: d60553c8cb46657f00f37c31494c5cde4b170a2b
+PulseDB_Vital.zip.008: a64d6c051fe3f2bc0f6b438d6b9bcad7150e9c6f
+PulseDB_Vital.zip.009: d98fb31b44364875c379fa82293ca14845b9f1c2
+PulseDB_Vital.zip.010: 45c8a5bd810b1b5e70a63c3b9300490737fcabf4
+```
+
+- Unzip `PulseDB_MIMIC.zip.001` and `PulseDB_Vital.zip.001` with [7zip](https://www.7-zip.org/) to retrieve the `PulseDB_MIMIC` and `PulseDB_Vital` folders in the `Segment_Files` folder
+
+## From GoogleDrive
+
+- The [GoogleDrive link](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing) stores all files as uncompressed, individual MATLAB data files
+
+- The Google Drive desktop app has option to sync all files in the link to a local machine
   - Register a free Google Drive account
-  - Open the [GoogleDrive link](https://drive.google.com/drive/folders/10mz4mfBo6NczPNbbjX0a9tAKQSMugBjV?usp=sharing) in your web browser
+  - Open the  in your web browser
   - In Google Drive, go to "Shared with me"
   - Right click on the PulseDB folder, select "Organize > Add shortcut"
   - Pick a location in you Google Drive to create a link to the shared folder
   - Install the Google Drive app on your computer and sync with your Google Drive account. PulseDB will be synced to your computer just like all other files in your Google Drive.
+
+## From OneDrive
+
+- The [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EqalUqc2s_dEqbhgugkUW1MBeNQIUEntgsGM67atFfivbg?e=csitkl) stores all files as uncompressed, individual MATLAB data files
+- Use OneDrive as a backup to lookup individual file in case you encounter corrupted files
 
 
 # Loading Subset Files in Python

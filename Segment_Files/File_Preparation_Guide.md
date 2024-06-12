@@ -2,10 +2,10 @@
 
 Please prepare the **Segment** files in this folder:
 
-1. Download the following 2 folders of PulseDB segment files from this [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EiJIJdNUH5FEkjHozQLiz2IBX5XD8T1RdVGJwGT4MIIA1g?e=0B4d8K) or [GoogleDrive link](https://drive.google.com/drive/folders/1-WKcJgO9lAjY2HBepRGDqyF3xjFADr8-?usp=sharing)
+1. Download the following 2 folders of PulseDB segment files from [Box link](https://rutgers.box.com/s/ezmiotu66dtnahxoirnukn25nrcylybc), [GoogleDrive link](https://drive.google.com/drive/folders/1-WKcJgO9lAjY2HBepRGDqyF3xjFADr8-?usp=sharing) or [OneDrive link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EiJIJdNUH5FEkjHozQLiz2IBX5XD8T1RdVGJwGT4MIIA1g?e=0B4d8K)
    * **PulseDB_MIMIC**
    * **PulseDB_Vital**
-3. Move the two folders, **PulseDB_MIMIC** and **PulseDB_Vital**, into this folder
+2. Move the two folders, **PulseDB_MIMIC** and **PulseDB_Vital**, into this folder
 
 # Licenses
 
