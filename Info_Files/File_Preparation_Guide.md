@@ -4,7 +4,7 @@ These **Info** files are for generating the **Training, Calibration, and Testing
 
 Please prepare the **Info** files in this folder:
 
-1. Download the following 5 **Info** files from this [OneDrive Link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EoSUR53_lQhCtOrAqinz4wYBt0HUAT5MJjrAJJqeXIZZsw?e=yRRmkB) or [GoogleDrive link](https://drive.google.com/drive/folders/1u_lFelitq4xfpkn_b0Xfw850tLFXNvme?usp=share_link)
+1. Download the following 5 **Info** files from the [Box link](https://rutgers.box.com/s/avujziev6swottwap90vjtd0lxnjcqgd), [GoogleDrive link](https://drive.google.com/drive/folders/1u_lFelitq4xfpkn_b0Xfw850tLFXNvme?usp=share_link) or [OneDrive Link](https://rutgersconnect-my.sharepoint.com/:f:/g/personal/ww329_soe_rutgers_edu/EoSUR53_lQhCtOrAqinz4wYBt0HUAT5MJjrAJJqeXIZZsw?e=yRRmkB)
    * **Train_Info.mat**
    * **CalBased_Test_Info.mat**
    * **CalFree_Test_Info.mat**
